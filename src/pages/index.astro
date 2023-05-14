@@ -1,15 +1,38 @@
 ---
+import Page from "../layouts/Page.astro";
+import CardBlog from "../components/CardBlog.astro";
+import LayoutCardList from "../layouts/LayoutCardList.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Page>
+  <div class="container mx-auto px-4">
+    <div class="flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-4 mb-8">
+      <img src="https://via.placeholder.com/200" alt="Nathan's placeholder image" class="w-full md:w-1/2 object-cover" />
+      <div class="w-full md:w-1/2">
+        <p class="text-2xl">CS-ed</p>
+        <p class="text-2xl">HCI</p>
+        <p class="text-2xl">Adaptive Experiments</p>
+        <div class="border-b border-gray-300 my-4"></div>
+        <h2 class="text-2xl mb-2">👋 Hey, I'm Nathan</h2>
+        <p class="mb-4">
+          I'm a second year master's student at the University of Guelph and an
+          incoming PhD student at the University of Toronto. I create
+          Self-Personalizing Computer Science Open Education Resources using
+          Large Language Models, Bayesian Machine Learning, and Adaptive
+          Behavioural Interventions.
+        </p>
+        <div class="bg-gray-100 p-4 rounded shadow-md max-w-md">
+          SUBSCRIBE to my E-Mail Newsletter #GuidingQuestions
+        </div>
+      </div>
+    </div>
+
+    <LayoutCardList>
+      <CardBlog />
+      <CardBlog />
+      <CardBlog />
+      <CardBlog />
+      <CardBlog />
+    </LayoutCardList>
+  </div>
+</Page>

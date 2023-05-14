@@ -1,0 +1,10 @@
+---
+// Props
+const link = Astro.props.link;
+const icon = Astro.props.icon;
+const altText = Astro.props.altText;
+---
+
+<a class="social-media-link inline-block m-2 p-2 rounded bg-gray-200 hover:bg-gray-300 transition-colors duration-300" href={link}>
+  <img class="social-media-icon w-6 h-6" src={icon} alt={altText} />
+</a>

@@ -1,0 +1,49 @@
+---
+import NavMenu from "./NavMenu.astro";
+---
+
+<nav class="bg-white shadow-md py-4 px-2 relative">
+    <div class="container mx-auto flex justify-between items-center">
+        <a href="/" class="font-bold text-xl">Nathan Laundry</a>
+        <button id="hamburger" class="focus:outline-none">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+            >
+                <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </div>
+
+    <div
+        id="navMenu"
+        class="menu-hidden absolute top-full mt-2 right-0 w-64 transition-all"
+    >
+        <NavMenu />
+    </div>
+</nav>
+
+<script>
+    const hamburger = document.getElementById("hamburger");
+    const navMenu = document.getElementById("navMenu");
+
+    hamburger.addEventListener("click", () => {
+        navMenu.classList.toggle("menu-hidden");
+        navMenu.classList.toggle("menu-visible");
+    });
+</script>
+
+<style>
+    .menu-hidden {
+        display: none;
+    }
+    .menu-visible {
+    }
+</style>
