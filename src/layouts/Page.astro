@@ -4,29 +4,37 @@ import Footer from "../components/Footer.astro";
 ---
 
 <html lang="en" class="dark">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
-  </head>
-  <body class="dark:font-nunito dark:bg-background_colour dark:text-text_colour">
-    <div class="min-h-screen flex flex-col md:space-y-0 md:space-y-auto">
-      <Navbar />
-      <div class="content dark:text-white flex-grow">
-        <slot>
-          My guy, My dude, My friend, I could not tell you what went wrong.
-        </slot>
-      </div>
-      <Footer />
-    </div>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>Astro</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body
+        class="dark:font-nunito dark:bg-background_colour dark:text-text_colour"
+    >
+        <div class="min-h-screen flex flex-col md:space-y-0 md:space-y-auto">
+            <Navbar />
+            <div class="content dark:text-white flex-grow">
+                <slot>
+                    My guy, My dude, My friend, I could not tell you what went
+                    wrong.
+                </slot>
+            </div>
+            <Footer />
+        </div>
+    </body>
 </html>
 
 <style>
-    .content {
-        margin: 2rem 8rem;
+    @media (min-width: 768px) {
+        .content {
+            margin: 4rem 8rem;
+        }
     }
 </style>

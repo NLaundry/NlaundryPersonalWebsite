@@ -7,11 +7,14 @@ import Icon from "astro-icon";
     <div class="container mx-auto flex justify-between items-center">
         <a href="/" class="font-bold text-xl"></a>
         <div class="relative">
-            <button id="hamburger" class="focus:outline-none font-primary_colour">
+            <button
+                id="hamburger"
+                class="text-primary_colour hover:text-primary_active_colour"
+            >
                 <Icon
                     name="mdi:menu"
                     id="hamburger"
-                    class="w-12 h-12 text-primary_colour hover:text-primary_active_colour"
+                    class="w-10 h-10"
                 />
             </button>
 
@@ -29,16 +32,29 @@ import Icon from "astro-icon";
     const hamburger = document.getElementById("hamburger");
     const navMenu = document.getElementById("navMenu");
 
-    hamburger.addEventListener("click", () => {
+    hamburger.addEventListener("click", (event) => {
+        event.stopPropagation(); // Prevent the click event from bubbling up to the document
         navMenu.classList.toggle("menu-hidden");
         navMenu.classList.toggle("menu-visible");
+    });
+
+    document.addEventListener("click", (event) => {
+        if (!navMenu.contains(event.target)) {
+            navMenu.classList.add("menu-hidden");
+            navMenu.classList.remove("menu-visible");
+        }
     });
 </script>
 
 <style>
     .menu-hidden {
-        display: none;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.1s, visibility 0.1s;
     }
     .menu-visible {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.1s, visibility 0.1s;
     }
 </style>

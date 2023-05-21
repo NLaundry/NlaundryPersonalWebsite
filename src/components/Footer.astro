@@ -40,11 +40,11 @@ const socialMedias = [
 ---
 
 <footer class="py-6">
-    <div class="container mx-auto px-4 flex justify-center">
+    <div class="container mx-auto px-4 flex justify-center hover:drop-shadow-lg">
         {
             socialMedias.map((socialMedia) => (
-                <a href={socialMedia.link} class="mx-2" >
-                    <Icon name={socialMedia.icon} class="w-8 h-8 text-primary_colour hover:text-primary_active_colour"></Icon>
+                <a href={socialMedia.link} class="mx-2 text-primary_colour hover:text-primary_active_colour" >
+                    <Icon name={socialMedia.icon} class="w-8 h-8"/>
                 </a>
             ))
         }

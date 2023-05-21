@@ -8,6 +8,7 @@ import ProjectCardList from "../components/ProjectCardList.astro";
 import PublicationsCardList from "../components/PublicationsCardList.astro";
 import Divider from "../components/Divider.astro";
 import ProfilePic from "../assets/profilepic.webp";
+import Footer from "../components/Footer.astro";
 ---
 
 <Page>
@@ -20,12 +21,12 @@ import ProfilePic from "../assets/profilepic.webp";
             <img
                 src={ProfilePic}
                 alt="Nathan's profile picture"
-                class="profilepic-animated md:w-1/2 lg:h-5/6 lg:w-1/2 object-cover rounded-lg drop-shadow-2xl "
+                class="profilepic-animated md:w-1/2 lg:h-5/6 lg:w-1/2 object-cover rounded-lg drop-shadow-2xl"
             />
 
             <div class="w-full lg:w-1/2">
                 <div class="typewriter">
-                    <div class="mb-12">
+                    <div class="mb-16">
                         <p class="p3 text-4xl font-semibold text-text_colour">
                             CS-ed
                         </p>
@@ -36,22 +37,28 @@ import ProfilePic from "../assets/profilepic.webp";
                     </div>
 
                     <div
-                        class="fadein-divider border-t-4 border-primary_colour w-2/3 mr-auto rounded-full my-12"
+                        class="fadein-divider border-t-4 border-primary_colour w-2/3 mr-auto rounded-full my-16"
                     >
                     </div>
                     <h2 class="text-3xl font-semibold mt-12 mb-8">
                         👋 Hey, I'm Nathan
                     </h2>
                     <p class="p1 text-lg">
-                        I'm a second year master's student at the University of
-                        Guelph and an incoming PhD student at the University of
-                        Toronto.
+                        I'm an incoming PhD student at the
+
+                        <a
+                            class="font-semibold text-primary_colour hover:text-primary_active_colour"
+                            href="http://josephjaywilliams.com"
+                        >
+                            University of Toronto's Intelligent Adaptive
+                            Interventions Lab.
+                        </a>
                     </p>
-                    <p class="p2 mb-16 text-lg">
+                    <br />
+                    <p class="p2 mb-24 text-lg">
                         I create Self-Personalizing Computer Science Open
                         Education Resources using Large Language Models,
-                        Bayesian Machine Learning, and Adaptive Behavioural
-                        Interventions.
+                        Bayesian Machine Learning, and Adaptive Interventions.
                     </p>
                 </div>
                 <a href="nathanlaundry.com">
@@ -68,15 +75,33 @@ import ProfilePic from "../assets/profilepic.webp";
         <div class="my-8 md:my-36"></div>
 
         <!-- Blog Section-->
-        <h1 class="text-3xl font-semibold">Blog</h1>
+        <h1 class="text-4xl font-bold">🖋️ Blog</h1>
         <Divider />
         <BlogList />
 
         <!-- Add whitespace between sections -->
         <div class="my-8 md:my-36"></div>
 
+        <!-- Blog Section-->
+        <h1 class="text-4xl font-bold">🖋️ Talks</h1>
+        <Divider />
+<div class="iframe-container">
+            <iframe
+                class="responsive-iframe rounded-lg"
+                src="https://www.youtube.com/embed/-S7TgqNPUUY"
+                title="YouTube video player"
+                allow=" clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+            >
+            </iframe>
+</div>
+        <div class="w-full h-full rounded-lg shadow-lg">
+        </div>
+        <!-- Add whitespace between sections -->
+        <div class="my-8 md:my-36"></div>
+
         <!-- Projects Section-->
-        <h1 class="text-3xl font-semibold mb-4">Projects</h1>
+        <h1 class="text-4xl font-bold mb-4">💻 Projects</h1>
         <Divider />
         <ProjectCardList />
 
@@ -84,7 +109,7 @@ import ProfilePic from "../assets/profilepic.webp";
         <div class="my-8 md:my-36"></div>
 
         <!-- Publications Section-->
-        <h1 class="text-3xl font-semibold mb-4">Publications</h1>
+        <h1 class="text-4xl font-bold mb-4">📓 Publications</h1>
         <Divider />
         <PublicationsCardList />
 
@@ -94,6 +119,24 @@ import ProfilePic from "../assets/profilepic.webp";
 </Page>
 
 <style>
+
+.iframe-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+}
+
+/* Then style the iframe to fit in the container div with full height and width */
+.responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
     @media screen and (min-width: 1024px) {
         .typewriter h2 {
             overflow: hidden;
