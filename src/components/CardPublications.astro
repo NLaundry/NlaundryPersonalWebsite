@@ -1,0 +1,36 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+    pub: CollectionEntry<"publications">;
+}
+
+const { pub } = Astro.props;
+---
+
+<div class="bg-background_card_colour hover:bg-background_card_hover_colour shadow-lg hover:shadow-2xl rounded-lg hover:rounded-2xl overflow-hidden transition-all">
+    <!-- Card Content -->
+    <div class="p-4">
+        <!-- Card Title -->
+        <h3 class="font-semibold text-lg mb-2">{pub.data.title}</h3>
+
+        <!-- Card Type -->
+        <p class="text-gray-500 text-sm mb-4">{pub.data.type}</p>
+
+        <!-- Card Tags -->
+        <div class="flex flex-wrap mb-4">
+            {
+                pub.data.tags.map((tag) => (
+                    <span class="bg-blue-200 text-blue-800 py-1 px-2 rounded-full text-sm mr-2 mb-2">
+                        {tag}
+                    </span>
+                ))
+            }
+        </div>
+
+        <!-- Card Venue -->
+        <p class="text-gray-500 text-sm mt-2">
+            Venue: {pub.data.venue}
+        </p>
+    </div>
+</div>

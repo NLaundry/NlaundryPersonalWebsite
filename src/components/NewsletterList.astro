@@ -1,0 +1,38 @@
+---
+import { getCollection, getEntryBySlug } from "astro:content";
+import Page from "../layouts/Page.astro";
+
+const allNewsletters = await getCollection("newsletter", ({ data }) => {
+    return data.draft !== true;
+});
+---
+
+<ul class="space-y-4">
+    {
+        allNewsletters.map((newsletter) => (
+            <li
+                class="border border-gray-300 p-4 rounded-md"
+            >
+                <a
+                    href={`/newsletter/${newsletter.slug}`}
+                    class="text-blue-500 hover:text-blue-700 font-semibold"
+                >
+                    {newsletter.data.title}
+                </a>
+                <p class="text-gray-500 text-sm">
+                    Published on{" "}
+                    {new Date(newsletter.data.publishDate).toLocaleDateString()}
+                </p>
+                <div class="flex space-x-2 mt-2">
+                    {newsletter.data.tags.map((tag) => (
+                        <span
+                            class="text-sm bg-gray-200 text-gray-700 px-2 py-1 rounded-md"
+                        >
+                            {tag}
+                        </span>
+                    ))}
+                </div>
+            </li>
+        ))
+    }
+</ul>

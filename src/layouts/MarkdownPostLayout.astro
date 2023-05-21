@@ -1,0 +1,10 @@
+---
+import type { MarkdownLayoutProps } from "astro";
+import Page from "./Page.astro";
+---
+
+<Page>
+    <div class="prose dark:prose-invert lg:prose-lg sm:max-w-xl md:max-w-2xl lg:max-w-3xl mx-auto">
+        <slot />
+    </div>
+</Page>

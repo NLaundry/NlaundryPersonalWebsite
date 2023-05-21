@@ -1,0 +1,15 @@
+---
+import { getCollection, getEntryBySlug } from "astro:content";
+import LayoutCardList from "../layouts/LayoutCardList.astro";
+import CardBlog from "./CardBlog.astro";
+
+const allBlogPosts = await getCollection("blog", ({ data }) => {
+    return data.draft !== true;
+});
+---
+
+<LayoutCardList>
+{allBlogPosts.map(blogPost => (
+    <CardBlog post={blogPost}></CardBlog>
+        ) )}
+</LayoutCardList>

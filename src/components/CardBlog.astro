@@ -1,30 +1,47 @@
 ---
-const blog = {
-  title: 'Card Title',
-  description: 'Card content',
-  imageUrl: 'https://via.placeholder.com/150',
-  tags: ['Tag 1', 'Tag 2', 'Tag 3']
-};
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+    post: CollectionEntry<"blog">;
+}
+
+const { post } = Astro.props;
 ---
 
-<div class="bg-white rounded-lg shadow-lg overflow-hidden">
-  <!-- Card Image -->
-  <img src={blog.imageUrl} alt="card image" class="w-full h-56 object-cover" />
+<div
+    class="relative flex bg-background_card_colour hover:bg-background_card_hover_colour backdrop-blur-lg drop-shadow-lg hover:drop-shadow-2xl rounded-2xl overflow-hidden transition-all"
+>
+    <!-- Card Image -->
+    <img
+        src={post.data.imagesrc}
+        alt={post.data.imagealt}
+        class="w-full h-full object-cover bg-cover"
+    />
 
-  <!-- Card Content -->
-  <div class="p-4">
-    <!-- Card Title -->
-    <h3 class="font-semibold text-lg mb-2">{blog.title}</h3>
+    <!-- Card Content -->
+    <div
+        class="p-4 z-10 w-full backdrop-blur-sm bg-background_card_colour bg-opacity-10 absolute bottom-0 left-0"
+    >
+        <!-- Card Title -->
+        <h3 class="font-semibold text-lg mb-2">{post.data.title}</h3>
 
-    <!-- Card Description -->
-    <p class="text-gray-600 mb-4">{blog.description}</p>
+        <!-- Card Subtitle -->
+        <p class="text-gray-600 mb-4">{post.data.subtitle}</p>
 
-    <!-- Card Tags -->
-    <div class="flex flex-wrap">
-      {blog.tags.map(tag => (
-        <span class="bg-blue-200 text-blue-800 py-1 px-2 rounded-full text-sm mr-2 mb-2">{tag}</span>
-      ))}
+        <!-- Card Tags -->
+        <div class="flex flex-wrap">
+            {
+                post.data.tags.map((tag) => (
+                    <span class="bg-blue-200 text-blue-800 py-1 px-2 rounded-full text-sm mr-2 mb-2">
+                        {tag}
+                    </span>
+                ))
+            }
+        </div>
+
+        <!-- Card Publish Date -->
+        <p class="text-gray-500 text-sm mt-2">
+            Published on {post.data.publishDate.toLocaleDateString()}
+        </p>
     </div>
-  </div>
 </div>
-

@@ -2,37 +2,186 @@
 import Page from "../layouts/Page.astro";
 import CardBlog from "../components/CardBlog.astro";
 import LayoutCardList from "../layouts/LayoutCardList.astro";
+import BlogList from "../components/BlogList.astro";
+import CardProjects from "../components/CardProjects.astro";
+import ProjectCardList from "../components/ProjectCardList.astro";
+import PublicationsCardList from "../components/PublicationsCardList.astro";
+import Divider from "../components/Divider.astro";
+import ProfilePic from "../assets/profilepic.webp";
 ---
 
 <Page>
-  <div class="container mx-auto px-4">
-    <div class="flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-4 mb-8">
-      <img src="https://via.placeholder.com/200" alt="Nathan's placeholder image" class="w-full md:w-1/2 object-cover" />
-      <div class="w-full md:w-1/2">
-        <p class="text-2xl">CS-ed</p>
-        <p class="text-2xl">HCI</p>
-        <p class="text-2xl">Adaptive Experiments</p>
-        <div class="border-b border-gray-300 my-4"></div>
-        <h2 class="text-2xl mb-2">👋 Hey, I'm Nathan</h2>
-        <p class="mb-4">
-          I'm a second year master's student at the University of Guelph and an
-          incoming PhD student at the University of Toronto. I create
-          Self-Personalizing Computer Science Open Education Resources using
-          Large Language Models, Bayesian Machine Learning, and Adaptive
-          Behavioural Interventions.
-        </p>
-        <div class="bg-gray-100 p-4 rounded shadow-md max-w-md">
-          SUBSCRIBE to my E-Mail Newsletter #GuidingQuestions
-        </div>
-      </div>
-    </div>
+    <div class="container mx-auto px-4">
+        <!-- Hello Section-->
+        <div
+            id="Section:hello"
+            class="sm:h-auto sm:px-4 sm:space-y-4 lg:h-screen flex flex-col lg:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-24 mb-8"
+        >
+            <img
+                src={ProfilePic}
+                alt="Nathan's profile picture"
+                class="profilepic-animated md:w-1/2 lg:h-5/6 lg:w-1/2 object-cover rounded-lg drop-shadow-2xl "
+            />
 
-    <LayoutCardList>
-      <CardBlog />
-      <CardBlog />
-      <CardBlog />
-      <CardBlog />
-      <CardBlog />
-    </LayoutCardList>
-  </div>
+            <div class="w-full lg:w-1/2">
+                <div class="typewriter">
+                    <div class="mb-12">
+                        <p class="p3 text-4xl font-semibold text-text_colour">
+                            CS-ed
+                        </p>
+                        <p class="p3 text-4xl font-semibold">HCI</p>
+                        <p class="p3 text-4xl font-semibold">
+                            Adaptive Experiments
+                        </p>
+                    </div>
+
+                    <div
+                        class="fadein-divider border-t-4 border-primary_colour w-2/3 mr-auto rounded-full my-12"
+                    >
+                    </div>
+                    <h2 class="text-3xl font-semibold mt-12 mb-8">
+                        👋 Hey, I'm Nathan
+                    </h2>
+                    <p class="p1 text-lg">
+                        I'm a second year master's student at the University of
+                        Guelph and an incoming PhD student at the University of
+                        Toronto.
+                    </p>
+                    <p class="p2 mb-16 text-lg">
+                        I create Self-Personalizing Computer Science Open
+                        Education Resources using Large Language Models,
+                        Bayesian Machine Learning, and Adaptive Behavioural
+                        Interventions.
+                    </p>
+                </div>
+                <a href="nathanlaundry.com">
+                    <div
+                        class="fadein-divider font-semibold bg-primary_colour hover:bg-primary_active_colour p-4 rounded-lg drop-shadow-md hover:drop-shadow-lg max-w-md transition-all"
+                    >
+                        SUBSCRIBE to my E-Mail Newsletter #GuidingQuestions
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Add whitespace between sections -->
+        <div class="my-8 md:my-36"></div>
+
+        <!-- Blog Section-->
+        <h1 class="text-3xl font-semibold">Blog</h1>
+        <Divider />
+        <BlogList />
+
+        <!-- Add whitespace between sections -->
+        <div class="my-8 md:my-36"></div>
+
+        <!-- Projects Section-->
+        <h1 class="text-3xl font-semibold mb-4">Projects</h1>
+        <Divider />
+        <ProjectCardList />
+
+        <!--Add whitespace between sections -->
+        <div class="my-8 md:my-36"></div>
+
+        <!-- Publications Section-->
+        <h1 class="text-3xl font-semibold mb-4">Publications</h1>
+        <Divider />
+        <PublicationsCardList />
+
+        <!-- Add whitespace between sections -->
+        <div class="my-8 md:my-36"></div>
+    </div>
 </Page>
+
+<style>
+    @media screen and (min-width: 1024px) {
+        .typewriter h2 {
+            overflow: hidden;
+            width: 0;
+            border-right: 0.15em solid orange;
+            white-space: nowrap;
+            animation: typing 2.5s steps(15, end) 1s forwards,
+                blink-caret 0.75s step-end 4;
+        }
+
+        .typewriter .p1 {
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out 2.5s forwards;
+        }
+
+        .typewriter .p2 {
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out 3.5s forwards;
+        }
+
+        .typewriter .p3 {
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out 4.5s forwards;
+        }
+
+        .fadein-divider {
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out 4.5s forwards;
+        }
+
+        .profilepic-animated {
+            animation: float-expand-reduce 1s ease-in-out forwards;
+        }
+
+        /* The typing effect */
+        @keyframes typing {
+            0% {
+                width: 0;
+            }
+            63.64% {
+                width: 50%;
+            }
+            90% {
+                width: 50%;
+            }
+            100% {
+                width: 50%;
+                border-color: transparent;
+            }
+        }
+
+        /* The typewriter cursor effect */
+        @keyframes blink-caret {
+            from,
+            to {
+                border-color: transparent;
+            }
+            50% {
+                border-color: orange;
+            }
+        }
+
+        /* The fade-in effect */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes float-expand-reduce {
+            0% {
+                transform: scale(0.75);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    }
+</style>

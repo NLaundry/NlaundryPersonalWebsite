@@ -1,32 +1,27 @@
 ---
 import NavMenu from "./NavMenu.astro";
+import Icon from "astro-icon";
 ---
 
-<nav class="bg-white shadow-md py-4 px-2 relative">
+<nav class="fixed right-8 top-8 z-40">
     <div class="container mx-auto flex justify-between items-center">
-        <a href="/" class="font-bold text-xl">Nathan Laundry</a>
-        <button id="hamburger" class="focus:outline-none">
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-            >
-                <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-        </button>
-    </div>
+        <a href="/" class="font-bold text-xl"></a>
+        <div class="relative">
+            <button id="hamburger" class="focus:outline-none font-primary_colour">
+                <Icon
+                    name="mdi:menu"
+                    id="hamburger"
+                    class="w-12 h-12 text-primary_colour hover:text-primary_active_colour"
+                />
+            </button>
 
-    <div
-        id="navMenu"
-        class="menu-hidden absolute top-full mt-2 right-0 w-64 transition-all"
-    >
-        <NavMenu />
+            <div
+                id="navMenu"
+                class="menu-hidden absolute top-full mt-2 right-0 w-64 transition-all"
+            >
+                <NavMenu />
+            </div>
+        </div>
     </div>
 </nav>
 
