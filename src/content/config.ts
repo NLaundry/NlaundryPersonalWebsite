@@ -3,7 +3,8 @@ import { z, defineCollection } from 'astro:content';
 const blogCollection = defineCollection({
     schema: z.object({
         title: z.string(),
-        subtitle: z.string(),
+        subtitle: z.string().optional(),
+        source: z.string().optional(),
         tags: z.array(z.string()),
         imagesrc: z.string(),
         imagealt: z.string(),
@@ -29,7 +30,9 @@ const projectCollection = defineCollection({
     schema: z.object({
         title: z.string(),
         tags: z.array(z.string()),
+        img_source: z.string().optional(),
         github: z.string().url(),
+        link: z.string().url().optional(),
         authorContact: z.string().email(),
     })
 });

@@ -8,40 +8,43 @@ interface Props {
 const { post } = Astro.props;
 ---
 
+
 <div
-    class="relative flex bg-background_card_colour hover:bg-background_card_hover_colour backdrop-blur-lg drop-shadow-lg hover:drop-shadow-2xl rounded-2xl overflow-hidden transition-all"
+    class="relative h-96 backdrop-blur-lg rounded-2xl overflow-hidden drop-shadow-lg hover:drop-shadow-2xl transition-transform hover:scale-105"
 >
-    <!-- Card Image -->
-    <img
-        src={post.data.imagesrc}
-        alt={post.data.imagealt}
-        class="w-full h-full object-cover bg-cover"
-    />
+    <a href={post.data.source} class="z-30 object-cover">
+        <!-- Card Image -->
+        <img
+            src={post.data.imagesrc}
+            alt={post.data.imagealt}
+            class="w-full h-full object-fill md:object-cover"
+        />
+        <!-- Card Content -->
+        <div
+            class="p-4 z-10 w-full backdrop-blur-lg bg-background_card_colour bg-opacity-30 absolute bottom-0 left-0"
+        >
+            <!-- Card Title -->
+            <h3 class="font-semibold text-lg mb-2">{post.data.title}</h3>
 
-    <!-- Card Content -->
-    <div
-        class="p-4 z-10 w-full backdrop-blur-sm bg-background_card_colour bg-opacity-10 absolute bottom-0 left-0"
-    >
-        <!-- Card Title -->
-        <h3 class="font-semibold text-lg mb-2">{post.data.title}</h3>
+            <!-- Card Subtitle -->
+            <p class="mb-4">{post.data.subtitle ? post.data.subtitle : ""}</p>
 
-        <!-- Card Subtitle -->
-        <p class="text-gray-600 mb-4">{post.data.subtitle}</p>
+            <!-- Card Tags -->
+            <div class="flex flex-wrap">
+                {
+                    post.data.tags.map((tag) => (
+                        <span class="py-1 px-2 rounded-full text-sm mr-2 mb-2">
+                            {tag}
+                        </span>
+                    ))
+                }
+            </div>
 
-        <!-- Card Tags -->
-        <div class="flex flex-wrap">
-            {
-                post.data.tags.map((tag) => (
-                    <span class="bg-blue-200 text-blue-800 py-1 px-2 rounded-full text-sm mr-2 mb-2">
-                        {tag}
-                    </span>
-                ))
-            }
+            <!-- Card Publish Date -->
+            <p class="text-gray-500 text-sm mt-2">
+                Published on {post.data.publishDate.toLocaleDateString()}
+            </p>
         </div>
-
-        <!-- Card Publish Date -->
-        <p class="text-gray-500 text-sm mt-2">
-            Published on {post.data.publishDate.toLocaleDateString()}
-        </p>
-    </div>
+    </a>
 </div>
+

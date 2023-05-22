@@ -53,18 +53,31 @@ import Footer from "../components/Footer.astro";
                     </div>
                     <img
                         src={ProfilePic_Mobile}
-                        class="mx-auto xl:invisible xl:absolute h-96 rounded-full"
+                        class="profilepic-animated mx-auto xl:invisible xl:absolute h-96 rounded-full"
                     />
-<div class="flex justify-center xl:justify-start">
-  <div class="text-3xl font-semibold mt-12 mb-8">
-    <span class="wave">👋</span>
-    <h2 style="display: inline;">
-      <span class="fade-in" style="animation-delay: 2s;">Hey,</span>
-      <span class="fade-in" style="animation-delay: 2.25s;"> I'm</span>
-      <span class="fade-in" style="animation-delay: 2.5s;"> Nathan</span>
-    </h2>
-  </div>
-</div>
+                    <div class="flex justify-center xl:justify-start">
+                        <div class="text-3xl font-semibold mt-12 mb-8">
+                            <span class="wave">👋</span>
+                            <h2 style="display: inline;">
+                                <span
+                                    class="fade-in"
+                                    style="animation-delay: 2s;">Hey,</span
+                                >
+                                <span
+                                    class="fade-in"
+                                    style="animation-delay: 2.25s;"
+                                >
+                                    I'm</span
+                                >
+                                <span
+                                    class="fade-in"
+                                    style="animation-delay: 2.5s;"
+                                >
+                                    Nathan</span
+                                >
+                            </h2>
+                        </div>
+                    </div>
                     <div class="flex flex-col justify-center xl:justify-start">
                         <p class="p1 text-lg text-center xl:text-left">
                             I'm an incoming PhD student at the
@@ -88,7 +101,7 @@ import Footer from "../components/Footer.astro";
                 </div>
                 <a href="nathanlaundry.com">
                     <div
-                        class="fadein-divider font-semibold bg-primary_colour hover:bg-primary_active_colour p-4 rounded-lg drop-shadow-md hover:drop-shadow-lg max-w-md transition-all mx-auto xl:ml-0"
+                        class=" text-center fadein-divider font-semibold bg-primary_colour hover:bg-primary_active_colour p-4 rounded-lg drop-shadow-md hover:drop-shadow-lg max-w-md transition-all mx-auto xl:ml-0"
                     >
                         SUBSCRIBE to my E-Mail Newsletter #GuidingQuestions
                     </div>
@@ -250,37 +263,62 @@ import Footer from "../components/Footer.astro";
         }
     }
 
-@keyframes wave-animation {
-  0% { transform: rotate(0deg); opacity: 0; }
-  10% { transform: rotate(14deg); opacity: 1; }
-  20% { transform: rotate(-8deg); opacity: 1; }
-  30% { transform: rotate(14deg); opacity: 1; }
-  40% { transform: rotate(-8deg); opacity: 1; }
-  50% { transform: rotate(0deg); opacity: 1; }
-  100% { transform: rotate(0deg); opacity: 1; }
-}
+    @keyframes wave-animation {
+        0% {
+            transform: rotate(0deg);
+            opacity: 0;
+        }
+        10% {
+            transform: rotate(14deg);
+            opacity: 1;
+        }
+        20% {
+            transform: rotate(-8deg);
+            opacity: 1;
+        }
+        30% {
+            transform: rotate(14deg);
+            opacity: 1;
+        }
+        40% {
+            transform: rotate(-8deg);
+            opacity: 1;
+        }
+        50% {
+            transform: rotate(0deg);
+            opacity: 1;
+        }
+        100% {
+            transform: rotate(0deg);
+            opacity: 1;
+        }
+    }
 
-@keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
 
-.wave {
-  display: inline-block;
-  animation-name: wave-animation;
-  animation-duration: 1.5s;
-  animation-iteration-count: 1;
-  animation-delay: 1s;
-  animation-fill-mode: forwards;
-  opacity: 0;
-}
+    .wave {
+        display: inline-block;
+        animation-name: wave-animation;
+        animation-duration: 1.5s;
+        animation-iteration-count: 1;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+        opacity: 0;
+    }
 
-.fade-in {
-  display: inline;
-  opacity: 0;
-  animation-name: fade-in;
-  animation-duration: 1.5s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-}
+    .fade-in {
+        display: inline;
+        opacity: 0;
+        animation-name: fade-in;
+        animation-duration: 1.5s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+    }
 </style>
