@@ -8,38 +8,53 @@ import ProjectCardList from "../components/ProjectCardList.astro";
 import PublicationsCardList from "../components/PublicationsCardList.astro";
 import Divider from "../components/Divider.astro";
 import ProfilePic from "../assets/profilepic.webp";
+import ProfilePic_Mobile from "../assets/profilepic_mobile.png";
 import Footer from "../components/Footer.astro";
 ---
 
 <Page>
-    <div class="container mx-auto px-4">
+    <div class="container flex flex-col mx-auto px-4">
         <!-- Hello Section-->
         <div
             id="Section:hello"
-            class="sm:h-auto sm:px-4 sm:space-y-4 lg:h-screen flex flex-col lg:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-24 mb-8"
+            class="xl:h-screen flex flex-col xl:flex-row xl:items-center space-y-4 xl:space-x-24 mb-8"
         >
             <img
                 src={ProfilePic}
                 alt="Nathan's profile picture"
-                class="profilepic-animated md:w-1/2 lg:h-5/6 lg:w-1/2 object-cover rounded-lg drop-shadow-2xl"
+                class="profilepic-animated sm:w-full absolute invisible xl:relative xl:visible xl:h-5/6 xl:w-1/2 object-cover rounded-lg drop-shadow-2xl"
             />
 
-            <div class="w-full lg:w-1/2">
+            <div class="mx-auto xl:w-1/2">
                 <div class="typewriter">
-                    <div class="mb-16">
-                        <p class="p3 text-4xl font-semibold text-text_colour">
+                    <div
+                        class="invisible absolute xl:relative xl:visible mb-16"
+                    >
+                        <p
+                            class="invisible absolute xl:relative xl:visible p3 text-4xl font-semibold text-text_colour"
+                        >
                             CS-ed
                         </p>
-                        <p class="p3 text-4xl font-semibold">HCI</p>
-                        <p class="p3 text-4xl font-semibold">
+                        <p
+                            class="invisible absolute xl:relative xl:visible p3 text-4xl font-semibold"
+                        >
+                            HCI
+                        </p>
+                        <p
+                            class="invisible absolute xl:relative xl:visible p3 text-4xl font-semibold"
+                        >
                             Adaptive Experiments
                         </p>
                     </div>
 
                     <div
-                        class="fadein-divider border-t-4 border-primary_colour w-2/3 mr-auto rounded-full my-16"
+                        class="invisible absolute xl:relative xl:visible fadein-divider border-t-4 border-primary_colour w-2/3 mr-auto rounded-full my-16"
                     >
                     </div>
+                    <img
+                        src={ProfilePic_Mobile}
+                        class="mx-auto xl:invisible xl:absolute h-96 rounded-full"
+                    />
                     <h2 class="text-3xl font-semibold mt-12 mb-8">
                         👋 Hey, I'm Nathan
                     </h2>
@@ -63,7 +78,7 @@ import Footer from "../components/Footer.astro";
                 </div>
                 <a href="nathanlaundry.com">
                     <div
-                        class="fadein-divider font-semibold bg-primary_colour hover:bg-primary_active_colour p-4 rounded-lg drop-shadow-md hover:drop-shadow-lg max-w-md transition-all"
+                        class="fadein-divider font-semibold bg-primary_colour hover:bg-primary_active_colour p-4 rounded-lg drop-shadow-md hover:drop-shadow-lg max-w-md transition-all mx-auto"
                     >
                         SUBSCRIBE to my E-Mail Newsletter #GuidingQuestions
                     </div>
@@ -85,7 +100,7 @@ import Footer from "../components/Footer.astro";
         <!-- Blog Section-->
         <h1 class="text-4xl font-bold">🖋️ Talks</h1>
         <Divider />
-<div class="iframe-container">
+        <div class="iframe-container">
             <iframe
                 class="responsive-iframe rounded-lg"
                 src="https://www.youtube.com/embed/-S7TgqNPUUY"
@@ -94,9 +109,8 @@ import Footer from "../components/Footer.astro";
                 allowfullscreen
             >
             </iframe>
-</div>
-        <div class="w-full h-full rounded-lg shadow-lg">
         </div>
+        <div class="w-full h-full rounded-lg shadow-lg"></div>
         <!-- Add whitespace between sections -->
         <div class="my-8 md:my-36"></div>
 
@@ -119,112 +133,109 @@ import Footer from "../components/Footer.astro";
 </Page>
 
 <style>
+    .iframe-container {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+    }
 
-.iframe-container {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
-}
+    /* Then style the iframe to fit in the container div with full height and width */
+    .responsive-iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .typewriter h2 {
+        overflow: hidden;
+        width: 0;
+        border-right: 0.15em solid orange;
+        white-space: nowrap;
+        animation: typing 2.5s steps(15, end) 1s forwards,
+            blink-caret 0.75s step-end 4;
+    }
 
-/* Then style the iframe to fit in the container div with full height and width */
-.responsive-iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-}
-    @media screen and (min-width: 1024px) {
-        .typewriter h2 {
-            overflow: hidden;
+    .typewriter .p1 {
+        overflow: hidden;
+        opacity: 0;
+        animation: fadeIn 1s ease-in-out 2.5s forwards;
+    }
+
+    .typewriter .p2 {
+        overflow: hidden;
+        opacity: 0;
+        animation: fadeIn 1s ease-in-out 3.5s forwards;
+    }
+
+    .typewriter .p3 {
+        overflow: hidden;
+        opacity: 0;
+        animation: fadeIn 1s ease-in-out 4.5s forwards;
+    }
+
+    .fadein-divider {
+        opacity: 0;
+        animation: fadeIn 1s ease-in-out 4.5s forwards;
+    }
+
+    .profilepic-animated {
+        animation: float-expand-reduce 1s ease-in-out forwards;
+    }
+
+    /* The typing effect */
+    @keyframes typing {
+        0% {
             width: 0;
-            border-right: 0.15em solid orange;
-            white-space: nowrap;
-            animation: typing 2.5s steps(15, end) 1s forwards,
-                blink-caret 0.75s step-end 4;
         }
+        63.64% {
+            width: 100%;
+        }
+        90% {
+            width: 100%;
+        }
+        100% {
+            width: 100%;
+            border-color: transparent;
+        }
+    }
 
-        .typewriter .p1 {
-            overflow: hidden;
+    /* The typewriter cursor effect */
+    @keyframes blink-caret {
+        from,
+        to {
+            border-color: transparent;
+        }
+        50% {
+            border-color: orange;
+        }
+    }
+
+    /* The fade-in effect */
+    @keyframes fadeIn {
+        0% {
             opacity: 0;
-            animation: fadeIn 1s ease-in-out 2.5s forwards;
         }
+        100% {
+            opacity: 1;
+        }
+    }
 
-        .typewriter .p2 {
-            overflow: hidden;
+    @keyframes float-expand-reduce {
+        0% {
+            transform: scale(0.75);
             opacity: 0;
-            animation: fadeIn 1s ease-in-out 3.5s forwards;
         }
-
-        .typewriter .p3 {
-            overflow: hidden;
-            opacity: 0;
-            animation: fadeIn 1s ease-in-out 4.5s forwards;
+        50% {
+            transform: scale(1.1);
+            opacity: 1;
         }
-
-        .fadein-divider {
-            opacity: 0;
-            animation: fadeIn 1s ease-in-out 4.5s forwards;
-        }
-
-        .profilepic-animated {
-            animation: float-expand-reduce 1s ease-in-out forwards;
-        }
-
-        /* The typing effect */
-        @keyframes typing {
-            0% {
-                width: 0;
-            }
-            63.64% {
-                width: 50%;
-            }
-            90% {
-                width: 50%;
-            }
-            100% {
-                width: 50%;
-                border-color: transparent;
-            }
-        }
-
-        /* The typewriter cursor effect */
-        @keyframes blink-caret {
-            from,
-            to {
-                border-color: transparent;
-            }
-            50% {
-                border-color: orange;
-            }
-        }
-
-        /* The fade-in effect */
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-
-        @keyframes float-expand-reduce {
-            0% {
-                transform: scale(0.75);
-                opacity: 0;
-            }
-            50% {
-                transform: scale(1.1);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
+        100% {
+            transform: scale(1);
+            opacity: 1;
         }
     }
 </style>
