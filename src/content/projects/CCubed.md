@@ -1,5 +1,5 @@
 ---
-title: The Computer Councils of Canada
+title: The Computing Councils of Canada
 tags:
   - "Founder, Former President"
 img_source: https://miro.medium.com/v2/resize:fit:720/format:webp/1*uAm8k2Gxw3VLH6xMvG_Qfg.png

@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 ---
 
-<html lang="en" class="dark">
+<html lang="en" class="dark flex flex-col justify-center">
     <head>
         <meta charset="utf-8" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -18,7 +18,7 @@ import Footer from "../components/Footer.astro";
     <body
         class="dark:font-nunito dark:bg-background_colour dark:text-text_colour"
     >
-        <div class="min-h-screen flex flex-col md:space-y-0 md:space-y-auto">
+        <div class="min-h-screen flex flex-col my-4 mx-0">
             <Navbar />
             <div class="content dark:text-white flex-grow">
                 <slot>

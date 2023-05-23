@@ -10,10 +10,11 @@ import Divider from "../components/Divider.astro";
 import ProfilePic from "../assets/profilepic.webp";
 import ProfilePic_Mobile from "../assets/profilepic_mobile.png";
 import Footer from "../components/Footer.astro";
+import Icon from "astro-icon";
 ---
 
 <Page>
-    <div class="container flex flex-col mx-auto px-4">
+    <div class="flex flex-col px-4">
         <!-- Hello Section-->
         <div
             id="Section:hello"
@@ -28,7 +29,7 @@ import Footer from "../components/Footer.astro";
             <div class="mx-auto xl:w-1/2">
                 <div class="typewriter">
                     <div
-                        class="invisible absolute xl:relative xl:visible mb-16"
+                        class="invisible absolute xl:relative xl:visible mb-12"
                     >
                         <p
                             class="invisible absolute xl:relative xl:visible p3 text-4xl font-semibold text-text_colour"
@@ -48,7 +49,7 @@ import Footer from "../components/Footer.astro";
                     </div>
 
                     <div
-                        class="invisible absolute xl:relative xl:visible p3 border-t-4 border-primary_colour w-2/3 mr-auto rounded-full my-16"
+                        class="invisible absolute xl:relative xl:visible p3 border-t-4 border-primary_colour w-2/3 mr-auto rounded-full my-12"
                     >
                     </div>
                     <img
@@ -101,224 +102,365 @@ import Footer from "../components/Footer.astro";
                 </div>
                 <a href="nathanlaundry.com">
                     <div
-                        class=" text-center fadein-divider font-semibold bg-primary_colour hover:bg-primary_active_colour p-4 rounded-lg drop-shadow-md hover:drop-shadow-lg max-w-md transition-all mx-auto xl:ml-0"
+                        class="text-center fadein-divider font-semibold bg-primary_colour hover:bg-primary_active_colour p-4 rounded-lg drop-shadow-md hover:drop-shadow-lg max-w-md transition-all mx-auto xl:ml-0"
                     >
-                        SUBSCRIBE to my E-Mail Newsletter #GuidingQuestions
+                        SUBSCRIBE to my E-Mail Newsletter
+                        <p class="font-bold">#GuidingQuestions</p>
                     </div>
                 </a>
+            </div>
+        </div>
+
+        <button class="mx-auto flex flex-row">
+            <p
+                class="text-xl my-auto mx-4 py-2 border-b-4 border-primary_colour"
+            >
+                About Me
+            </p>
+            <Icon
+                name="mdi:arrow-down-bold"
+                class="breathing-animation h-16 w-16 rounded-full bg-background_card_colour text-primary_colour"
+            />
+        </button>
+
+        <!-- Add whitespace between sections -->
+        <div class="my-12 md:my-24"></div>
+
+        <!-- Blog Section-->
+        <div class="flex flex-col xl:flex-row drop-shadow-2xl">
+            <div class="w-full xl:w-1/3 rounded-lg mx-4 mb-4 flex flex-col">
+                <h1
+                    class="drop-shadow-lg px-4 inline-block xl:ml-[-2.5rem] my-[-2.5rem] text-4xl font-bold"
+                >
+                    🖋️ Writer, Teacher
+                </h1>
+                <div
+                    class="mx-8 my-6 text-xl bg-background_card_hover_colour rounded-lg"
+                >
+                    <p class="mx-12 my-24 text-xl text-text_secondary_colour">
+                        I keep a blog on Medium where I write programming
+                        tutorials and chronicle my academic journey.
+                        <br />
+                        <br />
+                    </p>
+                    <p
+                        class="text-2xl border-t-4 bg-background_card_colour border-solid rounded-b-lg border-accent_colour mx-auto py-12 px-8"
+                    >
+                        You can find some of my articles here :D
+                    </p>
+
+                    <!--Icon name="mdi:arrow-right-bold" class="breathing-animation w-16 float-right mr-[-1.5rem]"></Icon-->
+                </div>
+            </div>
+            <div class="w-full xl:w-2/3 m-4">
+                <BlogList />
+                <Divider />
             </div>
         </div>
 
         <!-- Add whitespace between sections -->
         <div class="my-8 md:my-36"></div>
 
-        <!-- Blog Section-->
-        <h1 class="text-4xl font-bold">🖋️ Blog</h1>
-        <Divider />
-        <BlogList />
-
-        <!-- Add whitespace between sections -->
-        <div class="my-8 md:my-36"></div>
-
-        <!-- Blog Section-->
-        <h1 class="text-4xl font-bold">🖋️ Talks</h1>
-        <Divider />
-        <div class="iframe-container">
-            <iframe
-                class="responsive-iframe rounded-lg"
-                src="https://www.youtube.com/embed/-S7TgqNPUUY"
-                title="YouTube video player"
-                allow=" clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-            >
-            </iframe>
-        </div>
-        <div class="w-full h-full rounded-lg shadow-lg"></div>
-        <!-- Add whitespace between sections -->
-        <div class="my-8 md:my-36"></div>
-
         <!-- Projects Section-->
-        <h1 class="text-4xl font-bold mb-4">💻 Projects</h1>
-        <Divider />
-        <ProjectCardList />
+
+        <div class="flex flex-col xl:flex-row drop-shadow-2xl">
+            <div class="w-full xl:w-2/3 m-4">
+                <ProjectCardList />
+            </div>
+            <div
+                class="order-first xl:order-last w-full xl:w-1/3 rounded-lg mx-4 mb-4 flex flex-col"
+            >
+                <h1
+                    class="drop-shadow-lg px-4 inline-block my-[-2.5rem] text-4xl font-bold"
+                >
+                    💻 Developer, Founder
+                </h1>
+                <div
+                    class="mx-8 my-6 text-xl bg-background_card_hover_colour rounded-lg"
+                >
+                    <p class="mx-12 my-24 text-xl text-text_secondary_colour">
+                        I've been known to dabble with code and found a
+                        community or two.
+
+                        <br />
+                        <br />
+                    </p>
+                    <p
+                        class="text-2xl border-t-4 bg-background_card_colour border-solid rounded-b-lg border-accent_colour mx-auto py-12 px-8"
+                    >
+                        Check out some of my Highlights
+                    </p>
+                </div>
+            </div>
+        </div>
 
         <!--Add whitespace between sections -->
         <div class="my-8 md:my-36"></div>
 
         <!-- Publications Section-->
-        <h1 class="text-4xl font-bold mb-4">📓 Publications</h1>
-        <Divider />
-        <PublicationsCardList />
+
+        <div class="flex flex-col xl:flex-row drop-shadow-2xl">
+            <div
+                class="w-full xl:w-1/3 rounded-lg mx-4 mb-4 flex flex-col justify-center"
+            >
+                <h1
+                    class="drop-shadow-lg px-4 inline-block xl:ml-[-2.5rem] my-[-2.5rem] text-4xl font-bold"
+                >
+                    🎓 PhD Student
+                </h1>
+                <div
+                    class="mx-8 my-6 text-xl bg-background_card_hover_colour rounded-lg"
+                >
+                    <p class="mx-12 my-24 text-xl text-text_secondary_colour">
+                        My work brings together Adaptive Experiments, Large
+                        Language Models, and modern Software Developer Tools to
+                        make it quick and easy for instructors to compare and
+                        implement learning materials.
+                        <br />
+                        <br />
+                        I want to make the best learning materials freely available
+                        to anyone.
+                    </p>
+                    <p
+                        class="text-2xl border-t-4 bg-background_card_colour border-solid rounded-b-lg border-accent_colour mx-auto py-12 px-8"
+                    >
+                        Here's some of my work
+                    </p>
+                </div>
+            </div>
+            <div class="w-full xl:w-2/3 m-4">
+                <h1 class="text-4xl font-bold mb-4"></h1>
+                <PublicationsCardList />
+                <Divider />
+            </div>
+        </div>
+
+        <!-- Add whitespace between sections -->
+        <div class="my-8 md:my-36"></div>
+
+        <!-- Talks Section-->
+
+        <div class="flex flex-col xl:flex-row drop-shadow-2xl">
+            <div
+                class="xl:order-last w-full xl:w-1/3 rounded-lg mx-4 mb-4 flex flex-col justify-center"
+            >
+                <h1
+                    class="drop-shadow-lg px-4 inline-block xl:ml-[-2.5rem] my-[-2.5rem] text-4xl font-bold"
+                >
+                    🎤 Speaker
+                </h1>
+                <div
+                    class="mx-8 my-6 text-xl bg-background_card_hover_colour rounded-lg"
+                >
+                    <p class="mx-12 my-24 text-xl text-text_secondary_colour">
+                       I can get on a soap box ...
+                        <br />
+                        <br />
+                    </p>
+                    <p
+                        class="text-2xl border-t-4 bg-background_card_colour border-solid rounded-b-lg border-accent_colour mx-auto py-12 px-8"
+                    >
+                        Here's what that sounds like 
+                    </p>
+                </div>
+            </div>
+            <div class="w-full xl:w-2/3 m-4">
+                <div class="iframe-container">
+                    <iframe
+                        class="responsive-iframe rounded-lg"
+                        src="https://www.youtube.com/embed/-S7TgqNPUUY"
+                        title="YouTube video player"
+                        allow=" clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    >
+                    </iframe>
+                </div>
+            </div>
+        </div>
 
         <!-- Add whitespace between sections -->
         <div class="my-8 md:my-36"></div>
     </div>
-</Page>
 
-<style>
-    .iframe-container {
-        position: relative;
-        overflow: hidden;
-        width: 100%;
-        padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
-    }
+    <style>
+        .iframe-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+        }
 
-    /* Then style the iframe to fit in the container div with full height and width */
-    .responsive-iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        width: 100%;
-        height: 100%;
-    }
-    .typewriter .h2-typing {
-        overflow: hidden;
-        width: 0;
-        border-right: 0.15em solid orange;
-        white-space: nowrap;
-        animation: typing 2.5s steps(15, end) 1s forwards,
-            blink-caret 0.75s step-end 4;
-    }
-
-    .typewriter .p1 {
-        overflow: hidden;
-        opacity: 0;
-        animation: fadeIn 1s ease-in-out 3.5s forwards;
-    }
-
-    .typewriter .p2 {
-        overflow: hidden;
-        opacity: 0;
-        animation: fadeIn 1s ease-in-out 4.5s forwards;
-    }
-
-    .typewriter .p3 {
-        overflow: hidden;
-        opacity: 0;
-        animation: fadeIn 1s ease-in-out 5.5s forwards;
-    }
-
-    .fadein-divider {
-        opacity: 0;
-        animation: fadeIn 1s ease-in-out 4.5s forwards;
-    }
-
-    .profilepic-animated {
-        animation: float-expand-reduce 0.75s ease-in-out forwards;
-    }
-
-    /* The typing effect */
-    @keyframes typing {
-        0% {
+        /* Then style the iframe to fit in the container div with full height and width */
+        .responsive-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .typewriter .h2-typing {
+            overflow: hidden;
             width: 0;
+            border-right: 0.15em solid orange;
+            white-space: nowrap;
+            animation: typing 2.5s steps(15, end) 1s forwards,
+                blink-caret 0.75s step-end 4;
         }
-        63.64% {
-            width: 50%;
+
+        .typewriter .p1 {
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out 3.5s forwards;
         }
-        90% {
-            width: 50%;
+
+        .typewriter .p2 {
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out 4.5s forwards;
         }
-        100% {
-            width: 50%;
+
+        .typewriter .p3 {
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out 5.5s forwards;
+        }
+
+        .fadein-divider {
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out 4.5s forwards;
+        }
+
+        .profilepic-animated {
+            animation: float-expand-reduce 0.75s ease-in-out forwards;
+        }
+
+        /* The typing effect */
+        @keyframes typing {
+            0% {
+                width: 0;
+            }
+            63.64% {
+                width: 50%;
+            }
+            90% {
+                width: 50%;
+            }
+            100% {
+                width: 50%;
+                display: inline-block;
+                border-color: transparent;
+            }
+        }
+
+        /* The typewriter cursor effect */
+        @keyframes blink-caret {
+            from,
+            to {
+                border-color: transparent;
+            }
+            50% {
+                border-color: orange;
+            }
+        }
+
+        /* The fade-in effect */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes float-expand-reduce {
+            0% {
+                transform: scale(1);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.02);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes wave-animation {
+            0% {
+                transform: rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                transform: rotate(14deg);
+                opacity: 1;
+            }
+            20% {
+                transform: rotate(-8deg);
+                opacity: 1;
+            }
+            30% {
+                transform: rotate(14deg);
+                opacity: 1;
+            }
+            40% {
+                transform: rotate(-8deg);
+                opacity: 1;
+            }
+            50% {
+                transform: rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: rotate(0deg);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .wave {
             display: inline-block;
-            border-color: transparent;
-        }
-    }
-
-    /* The typewriter cursor effect */
-    @keyframes blink-caret {
-        from,
-        to {
-            border-color: transparent;
-        }
-        50% {
-            border-color: orange;
-        }
-    }
-
-    /* The fade-in effect */
-    @keyframes fadeIn {
-        0% {
+            animation-name: wave-animation;
+            animation-duration: 1.5s;
+            animation-iteration-count: 1;
+            animation-delay: 1s;
+            animation-fill-mode: forwards;
             opacity: 0;
         }
-        100% {
-            opacity: 1;
-        }
-    }
 
-    @keyframes float-expand-reduce {
-        0% {
-            transform: scale(0.75);
+        .fade-in {
+            display: inline;
             opacity: 0;
+            animation-name: fade-in;
+            animation-duration: 1.5s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
         }
-        50% {
-            transform: scale(1.1);
-            opacity: 1;
-        }
-        100% {
-            transform: scale(1);
-            opacity: 1;
-        }
-    }
 
-    @keyframes wave-animation {
-        0% {
-            transform: rotate(0deg);
-            opacity: 0;
+        @keyframes breathing {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(0.9);
+            }
         }
-        10% {
-            transform: rotate(14deg);
-            opacity: 1;
-        }
-        20% {
-            transform: rotate(-8deg);
-            opacity: 1;
-        }
-        30% {
-            transform: rotate(14deg);
-            opacity: 1;
-        }
-        40% {
-            transform: rotate(-8deg);
-            opacity: 1;
-        }
-        50% {
-            transform: rotate(0deg);
-            opacity: 1;
-        }
-        100% {
-            transform: rotate(0deg);
-            opacity: 1;
-        }
-    }
 
-    @keyframes fade-in {
-        from {
-            opacity: 0;
+        .breathing-animation {
+            animation: breathing 2s infinite ease-in-out;
         }
-        to {
-            opacity: 1;
-        }
-    }
-
-    .wave {
-        display: inline-block;
-        animation-name: wave-animation;
-        animation-duration: 1.5s;
-        animation-iteration-count: 1;
-        animation-delay: 1s;
-        animation-fill-mode: forwards;
-        opacity: 0;
-    }
-
-    .fade-in {
-        display: inline;
-        opacity: 0;
-        animation-name: fade-in;
-        animation-duration: 1.5s;
-        animation-iteration-count: 1;
-        animation-fill-mode: forwards;
-    }
-</style>
+    </style>
+</Page>
