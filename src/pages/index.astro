@@ -13,7 +13,7 @@ import Footer from "../components/Footer.astro";
 import Icon from "astro-icon";
 ---
 
-<Page>
+<Page class="">
     <div class="container mx-auto flex flex-col px-4">
         <!-- Hello Section-->
         <div
@@ -26,7 +26,9 @@ import Icon from "astro-icon";
                 class="profilepic-animated sm:w-full absolute invisible xl:relative xl:visible xl:h-5/6 xl:w-1/2 object-cover rounded-lg drop-shadow-2xl"
             />
 
-            <div class="mx-auto xl:w-1/2">
+            <div
+                class="mx-auto xl:w-1/2 p-8 xl:bg-opacity-0 xl:backdrop-blur-sm xl:bg-[#A3B8BD] xl:rounded-lg"
+            >
                 <div class="typewriter">
                     <div
                         class="invisible absolute xl:relative xl:visible mb-12"
@@ -56,58 +58,63 @@ import Icon from "astro-icon";
                         src={ProfilePic_Mobile}
                         class="profilepic-animated mx-auto xl:invisible xl:absolute h-96 rounded-full"
                     />
-                    <div class="flex justify-center xl:justify-start">
-                        <div class="text-3xl font-semibold mt-12 mb-8">
-                            <span class="wave">👋</span>
-                            <h2 style="display: inline;">
-                                <span
-                                    class="fade-in"
-                                    style="animation-delay: 2s;">Hey,</span
+                    <div class=" bg-opacity-5 backdrop-blur-sm rounded-lg xl:backdrop-blur-none">
+                        <div class="flex justify-center xl:justify-start">
+                            <div class="text-3xl font-semibold mt-12 mb-8">
+                                <span class="wave">👋</span>
+                                <h2 style="display: inline;">
+                                    <span
+                                        class="fade-in"
+                                        style="animation-delay: 2s;">Hey,</span
+                                    >
+                                    <span
+                                        class="fade-in"
+                                        style="animation-delay: 2.25s;"
+                                    >
+                                        I'm</span
+                                    >
+                                    <span
+                                        class="fade-in"
+                                        style="animation-delay: 2.5s;"
+                                    >
+                                        Nathan</span
+                                    >
+                                </h2>
+                            </div>
+                        </div>
+                        <div
+                            class="flex flex-col justify-center xl:justify-start"
+                        >
+                            <p class="p1 text-lg text-center xl:text-left">
+                                I'm an incoming PhD student at the
+
+                                <a
+                                    class="font-semibold text-primary_colour hover:text-primary_active_colour"
+                                    href="http://josephjaywilliams.com"
                                 >
-                                <span
-                                    class="fade-in"
-                                    style="animation-delay: 2.25s;"
-                                >
-                                    I'm</span
-                                >
-                                <span
-                                    class="fade-in"
-                                    style="animation-delay: 2.5s;"
-                                >
-                                    Nathan</span
-                                >
-                            </h2>
+                                    University of Toronto's Intelligent Adaptive
+                                    Interventions Lab.
+                                </a>
+                            </p>
+                            <br />
+                            <p
+                                class="p2 mb-24 text-lg text-center xl:text-left"
+                            >
+                                I create Self-Personalizing Open Education
+                                Resources using Large Language Models, Bayesian
+                                Machine Learning, and Adaptive Interventions.
+                            </p>
                         </div>
                     </div>
-                    <div class="flex flex-col justify-center xl:justify-start">
-                        <p class="p1 text-lg text-center xl:text-left">
-                            I'm an incoming PhD student at the
-
-                            <a
-                                class="font-semibold text-primary_colour hover:text-primary_active_colour"
-                                href="http://josephjaywilliams.com"
-                            >
-                                University of Toronto's Intelligent Adaptive
-                                Interventions Lab.
-                            </a>
-                        </p>
-                        <br />
-                        <p class="p2 mb-24 text-lg text-center xl:text-left">
-                            I create Self-Personalizing Open
-                            Education Resources using Large Language Models,
-                            Bayesian Machine Learning, and Adaptive
-                            Interventions.
-                        </p>
-                    </div>
+                    <a href="nathanlaundry.com">
+                        <div
+                            class="text-center fadein-divider font-semibold bg-primary_colour hover:bg-primary_active_colour p-4 rounded-lg drop-shadow-md hover:drop-shadow-lg max-w-md transition-all mx-auto xl:ml-0"
+                        >
+                            SUBSCRIBE to my E-Mail Newsletter
+                            <p class="font-bold">#GuidingQuestions</p>
+                        </div>
+                    </a>
                 </div>
-                <a href="nathanlaundry.com">
-                    <div
-                        class="text-center fadein-divider font-semibold bg-primary_colour hover:bg-primary_active_colour p-4 rounded-lg drop-shadow-md hover:drop-shadow-lg max-w-md transition-all mx-auto xl:ml-0"
-                    >
-                        SUBSCRIBE to my E-Mail Newsletter
-                        <p class="font-bold">#GuidingQuestions</p>
-                    </div>
-                </a>
             </div>
         </div>
 
@@ -127,15 +134,19 @@ import Icon from "astro-icon";
         <div class="my-12 md:my-24"></div>
 
         <!-- Blog Section-->
-        <div class="flex flex-col xl:flex-row drop-shadow-2xl">
-            <div class="w-full xl:w-1/3 rounded-lg mx-4 mb-4 flex flex-col">
+        <div
+            class="flex flex-col xl:flex-row"
+        >
+            <div
+                class="w-full xl:w-1/3 rounded-lg mx-4 mb-4 flex flex-col relative"
+            >
                 <h1
-                    class="drop-shadow-lg px-4 inline-block xl:ml-[-2.5rem] my-[-2.5rem] text-4xl font-bold"
+                    class="drop-shadow-xl px-4 inline-block xl:ml-[-2.5rem] my-[-2.5rem] text-4xl font-bold z-30 relative"
                 >
                     🖋️ Writer, Teacher
                 </h1>
                 <div
-                    class="mx-8 my-6 text-xl bg-background_card_hover_colour rounded-lg"
+                    class="mx-8 my-6 text-xl drop-shadow-2xl bg-opacity-60 bg-background_card_colour backdrop-blur-sm rounded-lg relative"
                 >
                     <p class="mx-12 my-24 text-xl text-text_secondary_colour">
                         I keep a blog on Medium where I write programming
@@ -163,7 +174,7 @@ import Icon from "astro-icon";
 
         <!-- Projects Section-->
 
-        <div class="flex flex-col xl:flex-row drop-shadow-2xl">
+        <div class="flex flex-col xl:flex-row">
             <div class="w-full xl:w-2/3 m-4">
                 <ProjectCardList />
             </div>
@@ -171,12 +182,12 @@ import Icon from "astro-icon";
                 class="order-first xl:order-last w-full xl:w-1/3 rounded-lg mx-4 mb-4 flex flex-col"
             >
                 <h1
-                    class="drop-shadow-lg px-4 inline-block my-[-2.5rem] text-4xl font-bold"
+                    class="drop-shadow-lg px-4 inline-block my-[-2.5rem] text-4xl font-bold z-30"
                 >
                     💻 Developer, Founder
                 </h1>
                 <div
-                    class="mx-8 my-6 text-xl bg-background_card_hover_colour rounded-lg"
+                    class="mx-8 my-6 text-xl drop-shadow-2xl bg-opacity-60 bg-background_card_colour backdrop-blur-sm rounded-lg relative"
                 >
                     <p class="mx-12 my-24 text-xl text-text_secondary_colour">
                         I've been known to dabble with code and found a
@@ -199,17 +210,17 @@ import Icon from "astro-icon";
 
         <!-- Publications Section-->
 
-        <div class="flex flex-col xl:flex-row drop-shadow-2xl">
+        <div class="flex flex-col xl:flex-row">
             <div
                 class="w-full xl:w-1/3 rounded-lg mx-4 mb-4 flex flex-col justify-center"
             >
                 <h1
-                    class="drop-shadow-lg px-4 inline-block xl:ml-[-2.5rem] my-[-2.5rem] text-4xl font-bold"
+                    class="drop-shadow-lg px-4 inline-block xl:ml-[-2.5rem] my-[-2.5rem] text-4xl font-bold z-30"
                 >
                     🎓 PhD Student
                 </h1>
                 <div
-                    class="mx-8 my-6 text-xl bg-background_card_hover_colour rounded-lg"
+                    class="mx-8 my-6 text-xl bg-background_card_hover_colour rounded-lg bg-opacity-60 backdrop-blur-sm"
                 >
                     <p class="mx-12 my-24 text-xl text-text_secondary_colour">
                         My work combines Adaptive Experiments, Large Language
@@ -239,17 +250,17 @@ import Icon from "astro-icon";
 
         <!-- Talks Section-->
 
-        <div class="flex flex-col xl:flex-row drop-shadow-2xl">
+        <div class="flex flex-col xl:flex-row">
             <div
                 class="xl:order-last w-full xl:w-1/3 rounded-lg mx-4 mb-4 flex flex-col justify-center"
             >
                 <h1
-                    class="drop-shadow-lg px-4 inline-block xl:ml-[-2.5rem] my-[-2.5rem] text-4xl font-bold"
+                    class="drop-shadow-lg px-4 inline-block xl:ml-[-2.5rem] my-[-2.5rem] text-4xl font-bold z-30"
                 >
                     🎤 Speaker
                 </h1>
                 <div
-                    class="mx-8 my-6 text-xl bg-background_card_hover_colour rounded-lg"
+                    class="mx-8 my-6 text-xl bg-background_card_hover_colour rounded-lg bg-opacity-60 backdrop-blur-sm"
                 >
                     <p class="mx-12 my-24 text-xl text-text_secondary_colour">
                         I can get on a soap box ...
